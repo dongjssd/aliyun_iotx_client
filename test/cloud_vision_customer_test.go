@@ -8,7 +8,7 @@ package test
 
 import (
 	"fmt"
-	"github.com/dongjssd/aliyun_iotx_client/aliyun_iotx_client"
+	"github.com/dongjssd/aliyun_iotx_client"
 	"testing"
 )
 
