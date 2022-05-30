@@ -4,7 +4,7 @@
     @description:云端用户服务
 **/
 
-package client
+package aliyun_iotx_client
 
 import (
 	"encoding/json"

@@ -4,7 +4,7 @@
     @description: 视频服务云存储购买
 **/
 
-package client
+package aliyun_iotx_client
 
 import (
 	"encoding/json"

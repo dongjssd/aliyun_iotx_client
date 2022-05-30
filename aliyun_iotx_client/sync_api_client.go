@@ -4,7 +4,7 @@
     @description:
 **/
 
-package client
+package aliyun_iotx_client
 
 import (
 	"bytes"

@@ -4,7 +4,7 @@
     @description: 运营中心API服务
 **/
 
-package client
+package aliyun_iotx_client
 
 import (
 	"encoding/json"

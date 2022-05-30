@@ -4,7 +4,7 @@
     @description:云端物的模型服务
 **/
 
-package client
+package aliyun_iotx_client
 
 import (
 	"encoding/json"
