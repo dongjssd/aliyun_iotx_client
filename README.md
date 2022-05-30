@@ -5,6 +5,8 @@
 
 ### 安装
 
+go get github.com/dongjssd/aliyun_iotx_client@v0.1.3
+
 ### 方法命名规则
 
 /cloud/token/refresh => TokenRefresh()
@@ -15,7 +17,7 @@
 var appKey = "" //阿里云appKey
 var appSecret = "" //阿里云appSecret
 var host = "" //API网关协议与地址 默认api.link.aliyun.com
-client, _ := InitSyncApiClient(appKey, appSecret, host)
+client, _ := aliyun_iotx_client.InitSyncApiClient(appKey, appSecret, host)
 var apiVer = "1.0.1" //版本号
 res := client.TokenGet(apiVer, "")
 
