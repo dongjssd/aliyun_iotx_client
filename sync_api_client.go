@@ -25,9 +25,9 @@ import (
 )
 
 type SyncApiClient struct {
-	AppKey    string //云端唯一身份（AppKey）
-	AppSecret string //云端密码（AppSecret）
-	Host      string //API网关协议与地址
+	appKey    string //云端唯一身份（AppKey）
+	appSecret string //云端密码（AppSecret）
+	host      string //API网关协议与地址
 }
 
 // InitSyncApiClient
@@ -50,7 +50,7 @@ func InitSyncApiClient(appKey, appSecret, host string) (client *SyncApiClient, e
 	if host == "" {
 		host = "api.link.aliyun.com"
 	}
-	client = &SyncApiClient{AppSecret: appSecret, AppKey: appKey, Host: host}
+	client = &SyncApiClient{appSecret: appSecret, appKey: appKey, host: host}
 	return
 }
 
@@ -75,7 +75,7 @@ func (c *SyncApiClient) PostBody(path string, req request.Request) (body []byte,
 	}
 	fmt.Println("reqBody:", string(reqBody))
 	var apiHttpReq = request.InitIotApiRequest(reqBody, path)
-	apiHttpReq.Host = c.Host
+	apiHttpReq.Host = c.host
 	httpReq := c.buildRequest(apiHttpReq)
 	client := &http.Client{}
 	if resp, err = client.Do(httpReq); err != nil {
@@ -109,7 +109,7 @@ func (c *SyncApiClient) makeIotApiRequest(apiReq *request.IotApiRequest) {
 	 *  拼接URL
 	 *  HTTP + HOST + PATH(With pathparameter) + Query Parameter
 	 */
-	var url = "https://" + c.Host + apiReq.Path
+	var url = "https://" + c.host + apiReq.Path
 	apiReq.Url = url
 	// 设置请求头中的时间戳
 	currentTime := time.Now()
@@ -125,7 +125,7 @@ func (c *SyncApiClient) makeIotApiRequest(apiReq *request.IotApiRequest) {
 	//设置请求头中的主机地址
 	apiReq.AddHeader(constant.CloudApiHttpHeaderHost, apiReq.Host)
 	//设置请求头中的Api绑定的的AppKey
-	apiReq.AddHeader(constant.CloudApiXCaKey, c.AppKey)
+	apiReq.AddHeader(constant.CloudApiXCaKey, c.appKey)
 	//设置签名版本号
 	apiReq.AddHeader(constant.CloudApiXCaVersion, constant.CloudApiCaVersionValue)
 	//设置请求数据类型
@@ -162,7 +162,7 @@ func (c *SyncApiClient) makeIotApiRequest(apiReq *request.IotApiRequest) {
 //将Request中的httpMethod、headers、path、queryParam、formParam合成一个字符串用hmacSha256算法双向加密进行签名
 func (c *SyncApiClient) sign(req *request.IotApiRequest) string {
 	signStr := buildStringToSign(req)
-	return secret.HmacSha256(signStr, c.AppSecret)
+	return secret.HmacSha256(signStr, c.appSecret)
 }
 
 /**
