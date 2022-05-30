@@ -5,6 +5,8 @@
 
 ### 安装
 
+go get github.com/dongjssd/aliyun_iotx_client@v0.1.3
+
 ### 方法命名规则
 
 /cloud/token/refresh => TokenRefresh()
