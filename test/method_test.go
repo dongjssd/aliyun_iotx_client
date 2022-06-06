@@ -56,12 +56,6 @@ func TestNameDeviceGenerate(t *testing.T) {
 	fmt.Printf("%+v", res)
 }
 
-func TestDeviceApplyQuery(t *testing.T) {
-	apiClient, _ := aliyun_iotx_client.InitSyncApiClient("29449075", "32891e4b647a8ea3e1cdd8f613792668", "")
-	res := apiClient.DeviceApplyQuery("1.0.1", "21212", 1, 100)
-	fmt.Printf("%+v", res)
-}
-
 func TestProductNvrDeviceGenerate(t *testing.T) {
 	apiClient, _ := aliyun_iotx_client.InitSyncApiClient("29449075", "32891e4b647a8ea3e1cdd8f613792668", "")
 	res := apiClient.ProductNvrDeviceGenerate("1.0.0", "a1eniNgbtHM", 1)
@@ -77,12 +71,6 @@ func TestProductNvrDeviceCertQuery(t *testing.T) {
 func TestProductList(t *testing.T) {
 	apiClient, _ := aliyun_iotx_client.InitSyncApiClient("29449075", "32891e4b647a8ea3e1cdd8f613792668", "")
 	res := apiClient.ProductList("1.0.0", 1, 10)
-	fmt.Printf("%+v", res)
-}
-
-func TestThingPropertiesGet(t *testing.T) {
-	apiClient, _ := aliyun_iotx_client.InitSyncApiClient("29449075", "32891e4b647a8ea3e1cdd8f613792668", "")
-	res := apiClient.ThingPropertiesGet("1.0.2", "", "a1eniNgbtHM", "v0wE8pvz0IagOSqEBe0y")
 	fmt.Printf("%+v", res)
 }
 
@@ -109,18 +97,6 @@ func TestThingPropertiesSet(t *testing.T) {
 func TestThingStatusGet(t *testing.T) {
 	apiClient, _ := aliyun_iotx_client.InitSyncApiClient("29449075", "32891e4b647a8ea3e1cdd8f613792668", "")
 	res := apiClient.ThingStatusGet("1.0.2", "", "a1eniNgbtHM", "v0wE8pvz0IagOSqEBe0y")
-	fmt.Printf("%+v", res)
-}
-
-func TestThingInfoGet(t *testing.T) {
-	apiClient, _ := aliyun_iotx_client.InitSyncApiClient("29449075", "32891e4b647a8ea3e1cdd8f613792668", "")
-	res := apiClient.ThingInfoGet("1.0.2", "", "a1eniNgbtHM", "v0wE8pvz0IagOSqEBe0y")
-	fmt.Printf("%+v", res)
-}
-
-func TestThingsGet(t *testing.T) {
-	apiClient, _ := aliyun_iotx_client.InitSyncApiClient("29449075", "32891e4b647a8ea3e1cdd8f613792668", "")
-	res := apiClient.ThingsGet("1.0.2", "a1eniNgbtHM", 0, 1, 20)
 	fmt.Printf("%+v", res)
 }
 

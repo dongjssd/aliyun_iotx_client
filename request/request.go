@@ -126,7 +126,7 @@ type ApiParamThingPropertiesSet struct {
 
 // ApiParamThingsGet 批量获取物的列表 请求列表
 type ApiParamThingsGet struct {
-	Status      int `json:"status,omitempty"`      //设备状态。0（表示未激活）；1（表示在线）；3（表示离线）；8（表示禁用）
+	Status      int `json:"status"`                //设备状态。0（表示未激活）；1（表示在线）；3（表示离线）；8（表示禁用）
 	CurrentPage int `json:"currentPage,omitempty"` //分页查询
 }
 
